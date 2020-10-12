@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const data = req.body;
-  console.log(data)
+  console.log(data);
   const newData = Object.keys(data[0]).filter((key) => data[0][key] == true);
 
   const helpRequest = new HelpRequest({
