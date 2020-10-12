@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
     phone: data[1].phone,
   });
   helpRequest.save();
-  res.send(helpRequest)
+  res.json(helpRequest)
 });
 
 module.exports = router;
