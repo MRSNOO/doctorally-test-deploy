@@ -5,7 +5,7 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const router = require("./api")
 const path = require('path');
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 const PASS = process.env.PASS
 
 const app = express();
@@ -28,13 +28,13 @@ mongoose.connect(
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(router);
 
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-app.use(router);
 
 const http = require('http').createServer(app);
 

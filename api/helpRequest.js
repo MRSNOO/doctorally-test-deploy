@@ -6,7 +6,6 @@ router.get("/", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(help)
       res.json(help);
     }
   });
@@ -40,7 +39,6 @@ router.post("/", (req, res) => {
     phone: data[1].phone,
   });
   helpRequest.save();
-  res.json(helpRequest)
 });
 
 module.exports = router;
